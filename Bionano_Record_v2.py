@@ -1,5 +1,6 @@
 #conding=utf8  
 import os
+import datetime
 import xlrd
 import xlwt
 
@@ -68,7 +69,8 @@ worksheet.write(0, 11, 'Negative label variance')
 worksheet.write(0, 12, 'Job ID')
 
 ##################################################################
-
+date = str(datetime.datetime.now()).split(" ")[0]
+print(date)
 n = 1
 for dirpath,dirnames, filenames in os.walk('./'):
     if str(dirpath) != str("./"):
@@ -79,7 +81,7 @@ for dirpath,dirnames, filenames in os.walk('./'):
                data1 = r.readlines()
                WriteinExcel(n, data1)
                n = n + 1
-workbook.save('Bionano_Record.xls')
+workbook.save('Bionano_Record-'+date+'.xls')
 ####################################################################
 
 	
